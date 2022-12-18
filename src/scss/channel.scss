@@ -1,0 +1,50 @@
+@use 'colors';
+
+.channel-container {
+    p {
+        margin: 0;
+    }
+}
+
+.banner {
+    height: calc(16.1290322581vw - 1px);
+    background-color: colors.$primary;
+}
+
+.channel-logo--lg {
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+    background-color: colors.$secondary;
+}
+
+.channel-logo--md {
+    min-height: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: 20px;
+    background-color: black;
+}
+
+.tab-channel {
+    color: colors.$light;
+    position: relative;
+    padding: 0px 30px;
+    padding-bottom: 10px;
+}
+
+
+.tab-channel.active {
+    color: black;
+}
+
+.tab-channel.active::before {
+    content: "";
+    height: 2px;
+    background-color: colors.$light;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}

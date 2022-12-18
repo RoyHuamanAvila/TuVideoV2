@@ -1,0 +1,110 @@
+@use 'colors';
+
+* {
+    -webkit-user-select: none;
+    user-select: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+$theme-colors: colors.$theme-colors;
+
+.header {
+    height: 56px;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.header-section {
+    display: flex;
+}
+
+.signin-button {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+}
+
+.signin-button:hover {
+    background-color: #def1ff;
+}
+
+input[type="text"]:focus {
+    border-color: transparent;
+    box-shadow: 0;
+    outline: 0 none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.sidebar {
+    position: fixed;
+    top: 56px;
+    width: 72px;
+    bottom: 0;
+}
+
+.sidebar-item {
+    padding: 20px 0px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+
+    p {
+        font-size: 10px;
+    }
+}
+
+.sidebar-item:hover {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.page-container {
+    margin-top: 56px;
+    margin-left: 72px;
+    position: relative;
+    background-color: #f9f9f9;
+    min-height: 525px;
+}
+
+.content-scroll {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: scroll;
+    margin-right: 5px;
+}
+
+.content-scroll::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.content-scroll::-webkit-scrollbar:vertical {
+    width: 10px;
+}
+
+.content-scroll::-webkit-scrollbar:horizontal {
+    height: 0;
+}
+
+.content-scroll::-webkit-scrollbar-thumb:vertical {
+    border-radius: 4px;
+    background-color: colors.$light;
+}
+
+.content-scroll::-webkit-scrollbar-track:vertical {
+    background: white;
+    border-radius: 4px;
+    margin: 5px 0;
+}
+
+
+@import './comment.scss';
+@import './watch.scss';
+@import './channel.scss';
+@import './videoitem.scss';
+@import "../../node_modules/bootstrap/scss/bootstrap";

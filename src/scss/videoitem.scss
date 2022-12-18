@@ -1,0 +1,81 @@
+@use 'colors';
+
+.videoitem {
+    text-decoration: none;
+}
+
+.videoitem:active {
+    background: #f1f1f1;
+}
+
+.videoitem--vertical {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    p {
+        margin: 0;
+    }
+}
+
+.videoitem-data {
+    padding-right: 24px;
+}
+
+.videoitem-stats {
+    color: colors.$light;
+    font-size: 0.7rem;
+}
+
+.img-container {
+    height: 147px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-container--horizontal {
+    height: 94px;
+    width: 168px;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.2rem;
+    color: black;
+}
+
+.info {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 12px;
+    color: colors.$light;
+}
+
+.info:hover {
+    color: black;
+}
+
+.channel-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    margin-right: 12px;
+}
+
+.videoitem--horizontal {
+    display: flex;
+    align-items: initial;
+    gap: 0.5rem;
+
+    p {
+        margin: 0;
+    }
+}

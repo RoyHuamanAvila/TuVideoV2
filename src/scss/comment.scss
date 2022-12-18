@@ -1,0 +1,46 @@
+@use 'colors';
+
+.comment-input-control {
+    position: relative;
+    height: max-content;
+    width: 100%;
+}
+
+.comment-input[type=text] {
+    border: 0;
+    position: relative;
+    border-bottom: 1px solid colors.$light;
+    width: 100%;
+}
+
+.comment-input[type=text]:focus {
+    border-bottom: 1px solid colors.$light;
+}
+
+.comment-input-control:has(>.comment-input[type=text])::after {
+    content: "";
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    width: 0px;
+    margin: 0 auto;
+}
+
+.comment-input-control:has(>.comment-input[type=text]:focus)::after {
+    width: 100%;
+    left: 0;
+    right: 0;
+    transition: 0.3s all;
+}
+
+.comment-title {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin: 0;
+    padding-bottom: 5px;
+}
+
+.comment-text {
+    font-size: 0.9rem;
+}
