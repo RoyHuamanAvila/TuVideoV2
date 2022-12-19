@@ -4,7 +4,7 @@ import Sidebar from "./components/Sidebar"
 import { useState } from "react"
 
 function App() {
-  const [isWatching, setIsWatching] = useState<boolean>();
+  const [isWatching, setIsWatching] = useState<boolean>(false);
 
   return (
     <div className="content-scroll">

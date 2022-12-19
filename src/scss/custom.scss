@@ -102,6 +102,14 @@ input[type="text"]:focus {
     margin: 5px 0;
 }
 
+.dropdown-icon {
+    width: 24px;
+    height: 24px
+}
+
+.dropdown-menu {
+    width: 300px;
+}
 
 @import './comment.scss';
 @import './watch.scss';
