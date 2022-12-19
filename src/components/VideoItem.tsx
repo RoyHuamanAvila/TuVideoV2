@@ -13,7 +13,7 @@ const VideoItem: FC<{ orientation: 'vertical' | 'horizontal' }> = ({ orientation
                         {
                             orientation === 'vertical' && <div>
                                 <Link to='/channel' title="channel">
-                                    <div className="bg-primary channel-img" />
+                                    <div className="bg-primary channel-img"></div>
                                 </Link>
                             </div>
                         }
