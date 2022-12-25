@@ -9,6 +9,8 @@ import ChannelContainer from './components/ChannelContainer'
 import ChannelHome from './pages/ChannelHome'
 import Watch from './pages/Watch'
 import { Auth0Provider } from '@auth0/auth0-react'
+import { Provider } from 'react-redux'
+import { store } from './app/store'
 
 const router = createBrowserRouter([
   {
@@ -33,7 +35,9 @@ const CLIENT_ID: string = import.meta.env.VITE_CLIENT_ID
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Auth0Provider domain={DOMAIN} clientId={CLIENT_ID} redirectUri={window.location.origin}>
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </Auth0Provider>
   </React.StrictMode>,
 )
