@@ -33,6 +33,13 @@
     background-color: black;
 }
 
+.channel-logo--xl {
+    min-height: 120px;
+    min-width: 120px;
+    max-width: 120px;
+    max-height: 120px;
+}
+
 .tab-channel {
     color: colors.$light;
     position: relative;
