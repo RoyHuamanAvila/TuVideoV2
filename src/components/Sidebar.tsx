@@ -16,7 +16,7 @@ const SidebarItem: FC<{ imgName: string; name: string; path: string }> = ({ imgN
             {
                 ({ isActive }) => (
                     <>
-                        <img className="pb-1" src={`icons/${imgName}${isActive ? 'Fill' : 'Outline'}.svg`} alt="" />
+                        <img className="pb-1" src={`/icons/${imgName}${isActive ? 'Fill' : 'Outline'}.svg`} alt="" />
                         <p className="m-0">{name}</p>
                     </>
                 )

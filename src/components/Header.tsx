@@ -1,20 +1,20 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import SignInButton from "./SignInButton"
 import { useAuth0 } from '@auth0/auth0-react'
 import { Logout, YourChannelOutline } from './Icons';
-import { useSelector } from "react-redux";
-import { RootState } from "../app/store";
-import { MyChannel } from "../interfaces";
-import { useDispatch } from "react-redux";
-import { createChannel } from "../features/channel/channelSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../app/store";
+import { CreateChannel } from "../interfaces";
 import React, { useState } from "react";
+import { axiosCreateChannel } from "../features/channel/channelSlice";
+import { toast } from 'react-toastify';
+import { axiosGetUser } from "../features/user/userSlice";
 
 const Header = () => {
-    const { isAuthenticated, logout, user } = useAuth0()
-    const yourChannel: MyChannel = useSelector((state: RootState) => state.yourChannel)
-    const [channelData, setChannelData] = useState<MyChannel>({ active: false, logo: '', name: '' });
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+    const { isAuthenticated, logout, user, } = useAuth0()
+    const [channelData, setChannelData] = useState<CreateChannel>({} as CreateChannel);
+    const userData = useSelector((state: RootState) => state.user);
+    const dispatch = useDispatch<AppDispatch>();
 
     const handleLogout = () => {
         logout({
@@ -26,9 +26,29 @@ const Header = () => {
         setChannelData({ ...channelData, [e.currentTarget.name]: e.currentTarget.value })
     }
 
-    const handleCreateChannel = () => {
-        dispatch(createChannel(channelData))
-        navigate('/channel')
+    const handleCreateChannel = async () => {
+        const token = localStorage.getItem('token');
+        let data: CreateChannel = channelData;
+
+        if (!data.logo && user?.picture) data = { ...channelData, logo: user?.picture }
+
+        if (token) dispatch(axiosCreateChannel({ data, token })).then((response) => {
+            if (!response.payload) {
+                toast('Error to create channel', {
+                    type: "error",
+                    position: "bottom-right"
+                })
+            } else {
+                if (user?.sub) {
+                    dispatch(axiosGetUser({ token, userID: user?.sub }));
+                    toast('Channel created succesful', {
+                        type: "success",
+                        position: "bottom-right"
+                    })
+                }
+            }
+        });
+
     }
 
     return (
@@ -36,10 +56,10 @@ const Header = () => {
             <div className="header d-flex justify-content-between py-2 px-2 bg-white me-3">
                 <div className="header-section">
                     <button className="btn" type="button" title="SideMenu">
-                        <img src="icons/Menu.svg" alt="menu button" />
+                        <img src="/icons/Menu.svg" alt="menu button" />
                     </button>
                     <Link to='/' className="h-100 d-block ps-4">
-                        <img className="h-100 w-auto" src="images/Logo.svg" alt="logo" />
+                        <img className="h-100 w-auto" src="/images/Logo.svg" alt="logo" />
                     </Link>
                 </div>
                 <div className="header-section gap-2">
@@ -47,7 +67,7 @@ const Header = () => {
                         <input className="border-0 h-100" type="text" placeholder="Search" />
                     </div>
                     <button className="btn" title="Microphone">
-                        <img className="align-self-center" src="icons/Microphone.svg" alt="" />
+                        <img className="align-self-center" src="/icons/Microphone.svg" alt="" />
                     </button>
                 </div>
                 <div className="header-section">
@@ -55,10 +75,10 @@ const Header = () => {
                         isAuthenticated ?
                             <>
                                 <button className="btn" type="button" title="Upload Video">
-                                    <img src="icons/UploadVideo.svg" alt="" />
+                                    <img src="/icons/UploadVideo.svg" alt="" />
                                 </button>
                                 <button className="btn" type="button" title="Notifications">
-                                    <img src="icons/Notify.svg" alt="" />
+                                    <img src="/icons/Notify.svg" alt="" />
                                 </button>
                                 <div className="dropdown">
                                     <button className="btn dropdown-circle h-100 ps-2 p-0" type="button" title="User" data-bs-toggle="dropdown" aria-expanded="false">
@@ -76,13 +96,15 @@ const Header = () => {
                                         </li>
                                         <li>
                                             {
-                                                yourChannel.active ?
-                                                    <Link to='/channel' className="dropdown-item pb-2">
+                                                userData?.user_metadata?.channel ? (
+                                                    <Link className="dropdown-item pb-2" to={`/channel/${userData.user_metadata.channel}`}>
                                                         <YourChannelOutline /> Your Channel
-                                                    </Link> :
+                                                    </Link>
+                                                ) : (
                                                     <button type="button" className="dropdown-item pb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        <YourChannelOutline /> Create Channel
+                                                        <YourChannelOutline /> CreateChannel
                                                     </button>
+                                                )
                                             }
                                         </li>
                                         <li><button onClick={handleLogout} className="dropdown-item" title="Logout"><Logout /> Exit</button></li>

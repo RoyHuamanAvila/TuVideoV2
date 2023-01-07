@@ -19,7 +19,7 @@ const router = createBrowserRouter([
       { path: '/subscribes', element: <Subscribes /> },
       {
         element: <ChannelContainer />, children: [
-          { path: '/channel', element: <ChannelHome /> }
+          { path: '/channel/:id', element: <ChannelHome /> }
         ]
       },
       { path: '/watch', element: <Watch /> }
@@ -30,11 +30,17 @@ const router = createBrowserRouter([
 
 const DOMAIN: string = import.meta.env.VITE_DOMAIN
 const CLIENT_ID: string = import.meta.env.VITE_CLIENT_ID
-
+const AUDIENCE: string = import.meta.env.VITE_AUDIENCE
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Auth0Provider domain={DOMAIN} clientId={CLIENT_ID} redirectUri={window.location.origin}>
+    <Auth0Provider
+      domain={DOMAIN}
+      clientId={CLIENT_ID}
+      redirectUri={window.location.origin}
+      audience={AUDIENCE}
+      scope='update:users update:users_app_metadata update:current_user_metadata read:users read:current_user read:user_idp_tokens'
+    >
       <Provider store={store}>
         <RouterProvider router={router} />
       </Provider>

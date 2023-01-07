@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const VideoItem: FC<{ orientation: 'vertical' | 'horizontal' }> = ({ orientation }) => {
     return (
-        <Link className="videoitem" to='/watch'>
+        <div className="videoitem">
             <div className="col">
                 <div className={`videoitem--${orientation}`}>
                     <div className={`img-container img-container--${orientation}`}>
@@ -27,7 +27,7 @@ const VideoItem: FC<{ orientation: 'vertical' | 'horizontal' }> = ({ orientation
                     </div>
                 </div>
             </div>
-        </Link>
+        </div>
     )
 }
 
