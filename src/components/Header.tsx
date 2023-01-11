@@ -17,6 +17,7 @@ const Header = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     const handleLogout = () => {
+        localStorage.removeItem('token')
         logout({
             returnTo: window.location.origin
         })

@@ -18,18 +18,14 @@ function App() {
     try {
       const token = await getAccessTokenSilently();
       localStorage.setItem('token', token);
+      if (token && user?.sub) dispatch(axiosGetUser({ token, userID: user?.sub }));
     } catch (e) {
       console.error(e);
     }
   }
 
   useEffect(() => {
-    getUserToken()
-  }, [user])
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token && user?.sub) dispatch(axiosGetUser({ token, userID: user?.sub }));
+    if (user) getUserToken()
   }, [user])
 
   return (
