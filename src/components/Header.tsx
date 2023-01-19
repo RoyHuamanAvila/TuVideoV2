@@ -9,6 +9,7 @@ import React, { useState } from "react";
 import { axiosCreateChannel } from "../features/channel/channelSlice";
 import { toast } from 'react-toastify';
 import { axiosGetUser } from "../features/user/userSlice";
+import UploadVideoModal from "./UploadVideoModal";
 
 const Header = () => {
     const { isAuthenticated, logout, user, } = useAuth0()
@@ -63,7 +64,7 @@ const Header = () => {
                         <img className="h-100 w-auto" src="/images/Logo.svg" alt="logo" />
                     </Link>
                 </div>
-                <div className="header-section gap-2">
+                <div className="header-section gap-2 d-none">
                     <div className="ps-2 rounded-pill border overflow-hidden">
                         <input className="border-0 h-100" type="text" placeholder="Search" />
                     </div>
@@ -75,7 +76,7 @@ const Header = () => {
                     {
                         isAuthenticated ?
                             <>
-                                <button className="btn" type="button" title="Upload Video">
+                                <button className="btn" type="button" title="Upload Video" data-bs-toggle="modal" data-bs-target="#uploadVideoModal">
                                     <img src="/icons/UploadVideo.svg" alt="" />
                                 </button>
                                 <button className="btn" type="button" title="Notifications">
@@ -137,6 +138,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+            <UploadVideoModal />
         </>
     )
 }

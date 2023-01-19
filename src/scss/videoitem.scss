@@ -29,7 +29,6 @@
 }
 
 .img-container {
-    height: 147px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -68,6 +67,7 @@
     height: 36px;
     border-radius: 18px;
     margin-right: 12px;
+    background-color: black;
 }
 
 .videoitem--horizontal {

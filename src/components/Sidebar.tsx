@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
     return (
-        <div className="sidebar py-3">
+        <div className="d-none d-md-block sidebar py-3">
             <SidebarItem imgName="Home" name="Home" path="/" />
             <SidebarItem imgName="Subs" name="Subscriptions" path="/subscribes" />
         </div>

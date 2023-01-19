@@ -17,6 +17,7 @@ function App() {
   const getUserToken = async () => {
     try {
       const token = await getAccessTokenSilently();
+      console.log(token)
       localStorage.setItem('token', token);
       if (token && user?.sub) dispatch(axiosGetUser({ token, userID: user?.sub }));
     } catch (e) {

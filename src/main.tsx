@@ -11,6 +11,7 @@ import Watch from './pages/Watch'
 import { Auth0Provider } from '@auth0/auth0-react'
 import { Provider } from 'react-redux'
 import { store } from './app/store'
+import ChannelVideos from './pages/ChannelVideos'
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,8 @@ const router = createBrowserRouter([
       { path: '/subscribes', element: <Subscribes /> },
       {
         element: <ChannelContainer />, children: [
-          { path: '/channel/:id', element: <ChannelHome /> }
+          { path: '/channel/:id', element: <ChannelHome /> },
+          { path: '/channel/:id/videos', element: <ChannelVideos /> }
         ]
       },
       { path: '/watch', element: <Watch /> }
