@@ -63,7 +63,6 @@ input[type="text"]:focus {
 
 .page-container {
     margin-top: 56px;
-    margin-left: 72px;
     position: relative;
     background-color: #f9f9f9;
     min-height: 525px;
@@ -79,24 +78,24 @@ input[type="text"]:focus {
     margin-right: 5px;
 }
 
-.content-scroll::-webkit-scrollbar {
+::-webkit-scrollbar {
     -webkit-appearance: none;
 }
 
-.content-scroll::-webkit-scrollbar:vertical {
+::-webkit-scrollbar:vertical {
     width: 10px;
 }
 
-.content-scroll::-webkit-scrollbar:horizontal {
+::-webkit-scrollbar:horizontal {
     height: 0;
 }
 
-.content-scroll::-webkit-scrollbar-thumb:vertical {
+::-webkit-scrollbar-thumb:vertical {
     border-radius: 4px;
     background-color: colors.$light;
 }
 
-.content-scroll::-webkit-scrollbar-track:vertical {
+::-webkit-scrollbar-track:vertical {
     background: white;
     border-radius: 4px;
     margin: 5px 0;
@@ -109,6 +108,25 @@ input[type="text"]:focus {
 
 .dropdown-menu {
     width: 300px;
+}
+
+.change-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .page-container {
+        margin-left: 72px;
+    }
 }
 
 @import './comment.scss';

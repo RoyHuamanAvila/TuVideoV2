@@ -14,9 +14,10 @@ export interface CreateChannel {
 }
 
 export interface Channel {
+  _id: string;
   name: string;
-  logo: string;
-  banner: string;
+  logo: string | File;
+  banner: string | File;
   owner: string;
 }
 
@@ -44,4 +45,19 @@ export interface Identity {
 
 export interface UserMetadata {
   channel: string;
+}
+
+export interface CreateVideo {
+  title: string;
+  description: string;
+  video: string | File;
+  thumbnail: string | File;
+}
+
+export interface Video {
+  title: string;
+  description: string;
+  url: string;
+  thumbnail: string;
+  owner: Channel;
 }
