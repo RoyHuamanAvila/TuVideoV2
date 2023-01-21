@@ -1,3 +1,5 @@
+import { AxiosRequestConfig } from "axios";
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export interface Icon {
   color?: string;
@@ -19,6 +21,7 @@ export interface Channel {
   logo: string | File;
   banner: string | File;
   owner: string;
+  videos: Video[];
 }
 
 export interface UserData {
@@ -60,4 +63,13 @@ export interface Video {
   url: string;
   thumbnail: string;
   owner: Channel;
+}
+
+export interface AsyncButtonInterface {
+  actionName: string;
+  request: AxiosRequestConfig;
+  succesMessage: string;
+  errorMessage: string;
+  styles?: string;
+  setState?: React.Dispatch<React.SetStateAction<any>>;
 }

@@ -2,6 +2,7 @@
 
 .videoitem {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .videoitem:active {
@@ -33,6 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 160px;
 }
 
 .img-container--horizontal {
