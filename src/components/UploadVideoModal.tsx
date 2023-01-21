@@ -1,8 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { CreateVideo } from '../interfaces';
+import { AsyncButtonInterface, CreateVideo } from '../interfaces';
 import { useVideoThumbnails } from '../hooks/useVideoThumbnails';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import AsyncButton from './AsyncButton';
+import { convertToFormData } from '../utils/convert';
 
 const UploadVideoModal = () => {
     const initialState: CreateVideo = {
@@ -42,34 +44,50 @@ const UploadVideoModal = () => {
         setVideo({ ...video, [e.currentTarget.name]: e.currentTarget.value });
     }
 
-    const uploadVideo = async () => {
-        const formData = new FormData();
-        for (const [key, value] of Object.entries(video)) {
-            formData.append(key, value);
-        }
-        console.log(formData.values())
-        try {
-            setVideo(initialState);
-            const token = localStorage.getItem('token');
-            console.log(token)
-            const response = await axios.request({
-                url: `${import.meta.env.VITE_DOMAIN_BD}/video`,
-                method: 'POST',
-                headers: {
-                    authorization: `Bearer ${token}`,
-                    'Content-Type': 'multipart/form-data',
-                },
-                data: formData,
-            })
-            console.log(response.data)
-            toast('Video uploaded', {
-                type: 'success'
-            })
-        } catch (error) {
-            console.log(error);
-            toast('An error ocurred', {
-                type: 'error'
-            })
+    /*     const uploadVideo = async () => {
+            const formData = new FormData();
+            for (const [key, value] of Object.entries(video)) {
+                formData.append(key, value);
+            }
+            console.log(formData.values())
+            try {
+                setVideo(initialState);
+                const token = localStorage.getItem('token');
+                console.log(token)
+                const response = await axios.request({
+                    url: `${import.meta.env.VITE_DOMAIN_BD}/video`,
+                    method: 'POST',
+                    headers: {
+                        authorization: `Bearer ${token}`,
+                        'Content-Type': 'multipart/form-data',
+                    },
+                    data: formData,
+                })
+                console.log(response.data)
+                toast('Video uploaded', {
+                    type: 'success'
+                })
+            } catch (error) {
+                console.log(error);
+                toast('An error ocurred', {
+                    type: 'error'
+                })
+            }
+        } */
+
+    const asyncButtonConfig: AsyncButtonInterface = {
+        actionName: 'Upload Video',
+        succesMessage: 'Video uploaded succesful',
+        errorMessage: 'Error at upload video',
+        styles: 'btn btn-confirm text-white',
+        request: {
+            method: 'POST',
+            url: `${import.meta.env.VITE_DOMAIN_BD}/video`,
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'multipart/form-data'
+            },
+            data: convertToFormData(video),
         }
     }
 
@@ -151,7 +169,7 @@ const UploadVideoModal = () => {
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" className="btn btn-confirm text-white" onClick={uploadVideo}>Upload Video</button>
+                        <AsyncButton {...asyncButtonConfig} />
                     </div>
                 </div>
             </div>
