@@ -9,6 +9,12 @@
 .banner {
     height: calc(16.1290322581vw - 1px);
     background-color: colors.$primary;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 .user-logo--sm {
@@ -16,6 +22,9 @@
     height: 38px;
 }
 
+.channel-logo {
+    background-color: red;
+}
 
 .channel-logo--lg {
     height: 80px;

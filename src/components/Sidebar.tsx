@@ -6,6 +6,7 @@ const Sidebar = () => {
         <div className="d-none d-md-block sidebar py-3">
             <SidebarItem imgName="Home" name="Home" path="/" />
             <SidebarItem imgName="Subs" name="Subscriptions" path="/subscribes" />
+            <NavLink to='/watch' className='sidebar-inWatch'></NavLink>
         </div>
     )
 }

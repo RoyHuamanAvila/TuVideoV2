@@ -6,5 +6,10 @@
     "typescript-config/strict": "off",
     "typescript-config/consistent-casing": "off",
     "no-inline-styles": "off"
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not ios_saf <= 14.8"
+  ]
 }
