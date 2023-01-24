@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { Video } from "../interfaces"
 
 const VideoItem: FC<{ orientation: 'vertical' | 'horizontal', data?: Video }> = ({ orientation, data }) => {
+
     return (
         <>
             {
@@ -11,12 +12,12 @@ const VideoItem: FC<{ orientation: 'vertical' | 'horizontal', data?: Video }> = 
                         <div className="col">
                             <div className={`videoitem--${orientation}`}>
                                 <div className={`img-container img-container--${orientation}`}>
-                                    <img className="w-100 h-auto" src={data?.thumbnail} alt="" loading="lazy" />
+                                    <img className="" src={data?.thumbnail} alt="" loading="lazy" />
                                 </div>
                                 <div className="d-flex videoitem-data">
                                     {
                                         orientation === 'vertical' && <div>
-                                            <Link to={`channel/${data.owner?._id}`} title="channel">
+                                            <Link to={`channel/${data.owner?._id}`} title={data.owner.name}>
                                                 <div className="channel-img overflow-hidden d-flex align-items-center justify-content-center">
                                                     <img className="img-fluid" src={data.owner?.logo as string} alt="" />
                                                 </div>
@@ -25,7 +26,7 @@ const VideoItem: FC<{ orientation: 'vertical' | 'horizontal', data?: Video }> = 
                                     }
                                     <div>
                                         <p className="title">{data?.title}</p>
-                                        <Link to={`/channel/${data.owner?._id}`} className="info pt-1" title="channel">{data?.owner?.name}</Link>
+                                        <Link to={`/channel/${data.owner?._id}`} className="info pt-1" title={data.owner.name}>{data?.owner?.name}</Link>
                                         <p className="videoitem-stats">
                                             <span>11 K vistas</span><span className="px-1">•</span><span>hace 8 días</span>
                                         </p>
@@ -33,6 +34,7 @@ const VideoItem: FC<{ orientation: 'vertical' | 'horizontal', data?: Video }> = 
                                 </div>
                             </div>
                         </div>
+                        <Link to={`/watch/${data._id}`} className="videoitem-interaction"></Link>
                     </div>
                 ) : (
                     <div className="videoitem">

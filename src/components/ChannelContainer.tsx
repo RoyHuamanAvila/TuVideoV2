@@ -124,7 +124,7 @@ const ChannelContainer = () => {
                                         </>
                                     )
                                 }
-                                <img className="img-fluid" src={getPathImage(channel.banner)} alt="banner" />
+                                <img src={getPathImage(channel.banner)} alt="banner" />
                             </div>
                         }
                         <div className="d-flex justify-content-between align-items-center px-4 py-3">
@@ -175,7 +175,7 @@ const ChannelContainer = () => {
                             </div>
                         </div>
                         <div className="d-flex px-4 border-bottom">
-                            <NavLink className='text-decoration-none text-uppercase tab-channel fw-semi-bold' to={`/channel/${id}`}>HOME</NavLink>
+                            <NavLink className='text-decoration-none text-uppercase tab-channel fw-semi-bold' end to={`/channel/${id}`}>HOME</NavLink>
                             <NavLink className='text-decoration-none text-uppercase tab-channel fw-semi-bold' to={`/channel/${id}/videos`}>VIDEOS</NavLink>
                         </div>
                         <div className="px-4">

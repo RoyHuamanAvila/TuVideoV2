@@ -32,9 +32,9 @@ function App() {
   return (
     <div className="content-scroll">
       <Header />
-      <NavLink to='/watch' />
       <Sidebar />
       <div className={`page-container`} >
+        <NavLink to='/watch' className='inWatch' />
         <Outlet />
       </div>
       <ToastContainer />

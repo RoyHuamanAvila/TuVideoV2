@@ -3,15 +3,15 @@ import { useState } from "react"
 const Comments = () => {
     return (
         <div className="pt-4 pb-5">
-            <p>520 comments</p>
+            <p>0 comments</p>
             <BoxAddComment />
             <div>
+                {/*                 <BoxComment />
                 <BoxComment />
                 <BoxComment />
                 <BoxComment />
                 <BoxComment />
-                <BoxComment />
-                <BoxComment />
+                <BoxComment /> */}
             </div>
         </div>
     )

@@ -11,7 +11,7 @@ $theme-colors: colors.$theme-colors;
 .header {
     height: 56px;
     position: fixed;
-    z-index: 2;
+    z-index: 10;
     top: 0;
     right: 0;
     left: 0;
@@ -61,11 +61,19 @@ input[type="text"]:focus {
     color: black;
 }
 
+.sidebar:has(.sidebar-inWatch.active) {
+    display: none !important;
+}
+
 .page-container {
     margin-top: 56px;
     position: relative;
     background-color: #f9f9f9;
     min-height: 525px;
+}
+
+.page-container:has(.inWatch.active) {
+    margin-left: 0;
 }
 
 .content-scroll {

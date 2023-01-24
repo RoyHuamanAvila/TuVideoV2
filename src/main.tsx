@@ -24,7 +24,7 @@ const router = createBrowserRouter([
           { path: '/channel/:id/videos', element: <ChannelVideos /> }
         ]
       },
-      { path: '/watch', element: <Watch /> }
+      { path: '/watch/:id', element: <Watch /> }
     ]
   }
 ])

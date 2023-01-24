@@ -10,7 +10,7 @@ const ChannelVideos = () => {
 
     const getVideos = async () => {
         try {
-            const response = await axios.get(`${import.meta.env.VITE_DOMAIN_BD}/video/${id}`);
+            const response = await axios.get(`${import.meta.env.VITE_DOMAIN_BD}/video/${id}/videos`);
             setVideos(response.data);
         } catch (error) {
             console.log(error);
