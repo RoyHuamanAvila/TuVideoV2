@@ -7,6 +7,7 @@ const Home = () => {
     const [videos, setVideos] = useState<Video[]>();
 
     const emptyData: Video = {
+        _id: '',
         title: '',
         description: '',
         owner: {} as Channel,
@@ -26,7 +27,7 @@ const Home = () => {
             placeHolders[i] = emptyData;
         }
 
-        return placeHolders.map((video) => <VideoItem orientation="vertical" />);
+        return placeHolders.map((video, index) => <VideoItem key={index} orientation="vertical" />);
     }
 
     useEffect(() => {
@@ -37,7 +38,7 @@ const Home = () => {
         <div className="row justify-content-start px-5 px-sm-3 row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
             {
                 videos ? (
-                    videos.map((video) => <VideoItem orientation="vertical" data={video} />)
+                    videos.map((video, index) => <VideoItem key={index} orientation="vertical" data={video} />)
                 ) : (
                     videosPlaceholder()
                 )

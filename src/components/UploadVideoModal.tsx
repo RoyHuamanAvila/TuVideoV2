@@ -5,6 +5,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import AsyncButton from './AsyncButton';
 import { convertToFormData } from '../utils/convert';
+import { uploadVideo } from '../features/user/userSlice';
 
 const UploadVideoModal = () => {
     const initialState: CreateVideo = {
@@ -74,21 +75,13 @@ const UploadVideoModal = () => {
                 })
             }
         } */
-
+    const token = localStorage.getItem('token') || '';
     const asyncButtonConfig: AsyncButtonInterface = {
         actionName: 'Upload Video',
         succesMessage: 'Video uploaded succesful',
         errorMessage: 'Error at upload video',
         styles: 'btn btn-confirm text-white',
-        request: {
-            method: 'POST',
-            url: `${import.meta.env.VITE_DOMAIN_BD}/video`,
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('token')}`,
-                'Content-Type': 'multipart/form-data'
-            },
-            data: convertToFormData(video),
-        }
+        thunkAction: uploadVideo({ data: video, token }),
     }
 
     const memoVideoPreview = useMemo(() => <video className='col-12' ref={videoRef} src={convertVideoPath(video.video)} controls />, [video.video])

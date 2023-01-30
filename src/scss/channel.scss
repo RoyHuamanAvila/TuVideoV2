@@ -49,6 +49,12 @@
     max-height: 120px;
 }
 
+.channel-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .tab-channel {
     color: colors.$light;
     position: relative;

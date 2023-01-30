@@ -3,25 +3,31 @@ import axios from 'axios';
 import { useState } from 'react'
 import { toast } from 'react-toastify';
 import { AsyncButtonInterface } from '../interfaces';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../app/store';
 
 const AsyncButton = (config: AsyncButtonInterface) => {
     const [loading, setLoading] = useState<boolean>(false);
-    const { actionName, request, styles, setState, succesMessage, errorMessage } = config;
+    const { actionName, thunkAction, styles, succesMessage, errorMessage } = config;
+    const dispatch = useDispatch<AppDispatch>();
 
     const handleRequest = async () => {
         try {
             setLoading(true);
-            const response = await axios.request(request);
-            if (setState) setState(response.data);
-            setLoading(false);
-            toast(succesMessage, {
-                type: 'success'
-            })
+            dispatch(thunkAction).then(() => {
+                setLoading(false);
+                toast(succesMessage, {
+                    type: 'success'
+                })
+            }).catch((error) => {
+                console.log(error);
+                setLoading(false);
+                toast(errorMessage, {
+                    type: 'error'
+                })
+            });
         } catch (error) {
             setLoading(false);
-            toast(errorMessage, {
-                type: 'error'
-            })
         }
     }
 
