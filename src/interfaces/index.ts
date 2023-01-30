@@ -1,4 +1,4 @@
-import { AxiosRequestConfig } from "axios";
+import { AsyncThunk, AsyncThunkAction } from "@reduxjs/toolkit";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export interface Icon {
@@ -68,9 +68,16 @@ export interface Video {
 
 export interface AsyncButtonInterface {
   actionName: string;
-  request: AxiosRequestConfig;
+  thunkAction: AsyncThunkAction<any, any, any>;
   succesMessage: string;
   errorMessage: string;
   styles?: string;
   setState?: React.Dispatch<React.SetStateAction<any>>;
+}
+
+export interface Comment {
+  _id: string;
+  owner: Channel;
+  videoID: string;
+  content: string;
 }

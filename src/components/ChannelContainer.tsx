@@ -2,7 +2,7 @@ import { NavLink, Outlet, useParams } from "react-router-dom"
 import ButtonSubscribe from "./ButtonSubscribe"
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Channel, UserData } from "../interfaces";
+import { Channel } from "../interfaces";
 import { useSelector } from "react-redux";
 import { RootState } from "../app/store";
 import { toast } from 'react-toastify';
@@ -12,7 +12,7 @@ const ChannelContainer = () => {
     const [initialData, setInitialData] = useState<Channel>({} as Channel);
     const [channel, setChannel] = useState<Channel>({} as Channel);
     const [editMode, setEditMode] = useState<boolean>(false);
-    const user: UserData = useSelector((state: RootState) => state.user);
+    const user = useSelector((state: RootState) => state.user);
 
     const axiosGetChannelData = async () => {
         try {

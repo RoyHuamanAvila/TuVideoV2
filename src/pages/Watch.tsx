@@ -50,7 +50,7 @@ const Watch = () => {
                             </div>
                             <div className="d-flex pt-3 gap-3 border-bottom">
                                 <div className="channel-logo--m overflow-hidden">
-                                    <img className="img-fluid" src={video.owner?.logo as string} alt="" />
+                                    <img className="channel-logo-img" src={video.owner?.logo as string} alt="" />
                                 </div>
                                 <div className="w-100">
                                     <div className="d-flex gap-3 justify-content-between">
@@ -67,7 +67,7 @@ const Watch = () => {
                                     </p>
                                 </div>
                             </div>
-                            <Comments />
+                            <Comments videoID={video._id} />
                         </div>
                         <div className="watch-videolist">
                             {

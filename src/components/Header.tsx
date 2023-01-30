@@ -8,7 +8,7 @@ import { CreateChannel } from "../interfaces";
 import React, { useState } from "react";
 import { axiosCreateChannel } from "../features/channel/channelSlice";
 import { toast } from 'react-toastify';
-import { axiosGetUser } from "../features/user/userSlice";
+import { getUserAuth0 } from "../features/user/userSlice";
 import UploadVideoModal from "./UploadVideoModal";
 
 const Header = () => {
@@ -42,7 +42,7 @@ const Header = () => {
                 })
             } else {
                 if (user?.sub) {
-                    dispatch(axiosGetUser({ token, userID: user?.sub }));
+                    dispatch(getUserAuth0({ token, userID: user?.sub }));
                     toast('Channel created succesful', {
                         type: "success",
                         position: "bottom-right"

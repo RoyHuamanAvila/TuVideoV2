@@ -5,7 +5,7 @@ import { useEffect } from "react"
 import { useAuth0 } from '@auth0/auth0-react'
 import { useDispatch } from "react-redux"
 import { AppDispatch } from "./app/store"
-import { axiosGetUser } from "./features/user/userSlice"
+import { getUserAuth0 } from "./features/user/userSlice"
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify"
 
@@ -19,7 +19,9 @@ function App() {
       const token = await getAccessTokenSilently();
       console.log(token)
       localStorage.setItem('token', token);
-      if (token && user?.sub) dispatch(axiosGetUser({ token, userID: user?.sub }));
+      if (token && user?.sub) {
+        dispatch(getUserAuth0({ token, userID: user?.sub }));
+      }
     } catch (e) {
       console.error(e);
     }
