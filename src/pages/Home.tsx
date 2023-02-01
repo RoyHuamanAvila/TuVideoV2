@@ -35,7 +35,7 @@ const Home = () => {
     }, [])
 
     return (
-        <div className="row justify-content-start px-5 px-sm-3 row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
+        <div className="row justify-content-start px-5 px-sm-3 row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5">
             {
                 videos ? (
                     videos.map((video, index) => <VideoItem key={index} orientation="vertical" data={video} />)

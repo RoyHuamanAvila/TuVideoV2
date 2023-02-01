@@ -17,7 +17,6 @@ function App() {
   const getUserToken = async () => {
     try {
       const token = await getAccessTokenSilently();
-      console.log(token)
       localStorage.setItem('token', token);
       if (token && user?.sub) {
         dispatch(getUserAuth0({ token, userID: user?.sub }));

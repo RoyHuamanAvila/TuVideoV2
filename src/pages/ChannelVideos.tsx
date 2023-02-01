@@ -22,7 +22,7 @@ const ChannelVideos = () => {
     }, [])
 
     return (
-        <div className="row justify-content-start px-5 px-sm-3 row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
+        <div className="row justify-content-start pt-3 px-5 px-sm-3 row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
             {
                 videos.map(video => <VideoItem orientation='vertical' data={video} />)
             }
