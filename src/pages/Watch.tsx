@@ -39,9 +39,9 @@ const Watch = () => {
         <>
             {
                 video ? (
-                    <div className="watch pt-4 gap-4">
-                        <div className="watch-section-1">
-                            <div className="bg-black watch-video">
+                    <div className="watch ps-3 pt-4 mx-lg-5 mx-xxl-auto">
+                        <div className="col-12 col-lg-8">
+                            <div className="bg-black">
                                 <video className="w-100 h-auto" src={video.url} controls></video>
                             </div>
                             <p className="pt-2 fs-5 fw-semibold">{video.title}</p>
@@ -69,7 +69,7 @@ const Watch = () => {
                             </div>
                             <Comments videoID={video._id} />
                         </div>
-                        <div className="watch-videolist">
+                        <div className="col-12 col-lg-4 d-flex flex-column gap-3 ps-lg-3 ps-xxl-5">
                             {
                                 listVideo?.map((video, index) => <VideoItem key={index} data={video} orientation="horizontal" />)
                             }

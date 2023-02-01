@@ -55,7 +55,7 @@ const Header = () => {
 
     return (
         <>
-            <div className="header d-flex justify-content-between py-2 px-2 bg-white me-3">
+            <div className="header d-flex justify-content-between py-2 px-2 bg-white">
                 <div className="header-section">
                     <button className="btn" type="button" title="SideMenu">
                         <img src="/icons/Menu.svg" alt="menu button" />

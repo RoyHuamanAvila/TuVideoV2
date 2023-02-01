@@ -6,9 +6,11 @@ import { Comment } from "../interfaces";
 import { useDispatch, useSelector } from "react-redux";
 import { comment } from "../features/user/userSlice";
 import { toast } from "react-toastify";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Comments: FC<{ videoID: string }> = ({ videoID }) => {
     const [comments, setComments] = useState<Comment[]>([]);
+    const { user } = useAuth0();
 
     const getComments = async () => {
         try {
@@ -24,9 +26,11 @@ const Comments: FC<{ videoID: string }> = ({ videoID }) => {
     }, [videoID])
 
     return (
-        <div className="pt-4 pb-5">
+        <div className="pt-4 pb-3 border-bottom">
             <p>{comments.length} comments</p>
-            <BoxAddComment videoID={videoID} setComments={setComments} />
+            {
+                user && <BoxAddComment videoID={videoID} setComments={setComments} />
+            }
             <div>
                 {
                     comments.map((comment, index) => <BoxComment key={index} {...comment} />)

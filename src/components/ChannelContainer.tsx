@@ -127,7 +127,7 @@ const ChannelContainer = () => {
                                 <img src={getPathImage(channel.banner)} alt="banner" />
                             </div>
                         }
-                        <div className="d-flex justify-content-between align-items-center px-4 py-3">
+                        <div className="d-flex flex-wrap flex-column flex-md-row gap-3 px-4 py-3 justify-content-between">
                             <div className="d-flex">
                                 <div className="channel-logo--lg overflow-hidden position-relative d-flex align-items-center">
                                     {
@@ -156,7 +156,7 @@ const ChannelContainer = () => {
                                     <p className="text-light">120M subscribers</p>
                                 </div>
                             </div>
-                            <div>
+                            <div className="align-self-end">
                                 {
                                     verifyOwner() ? (
                                         editMode ? (

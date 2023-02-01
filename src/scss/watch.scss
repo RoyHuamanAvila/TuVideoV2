@@ -4,8 +4,11 @@ $width-flex: calc((100vh - (56px + 24px + 136px))* (16/9));
 $min-width-flex: 640px;
 
 .watch {
+    max-width: 1754px;
+    position: relative;
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .watch-section-1 {
