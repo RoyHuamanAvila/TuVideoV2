@@ -1,4 +1,4 @@
-import { AsyncThunk, AsyncThunkAction } from "@reduxjs/toolkit";
+import { AsyncThunkAction } from "@reduxjs/toolkit";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export interface Icon {
@@ -80,4 +80,15 @@ export interface Comment {
   owner: Channel;
   videoID: string;
   content: string;
+}
+
+export interface ManageComment {
+  comment: Comment;
+  updateComment: (newContent: string, _id: string) => Promise<void>;
+  deleteComment: (id: string) => Promise<void>;
+}
+
+export interface AddComment {
+  videoID: string;
+  addComment: (content: string, videoID: string) => Promise<void>;
 }

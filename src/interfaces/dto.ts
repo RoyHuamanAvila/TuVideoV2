@@ -4,6 +4,17 @@ export interface CreateComment {
   token: string;
 }
 
+export interface EditComment {
+  content: string;
+  token: string;
+  commentID: string;
+}
+
+export interface DeleteComment {
+  commentID: string;
+  token: string;
+}
+
 export interface Subscribe {
   channelID: string;
   token: string;

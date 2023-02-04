@@ -1,17 +1,14 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { UserData } from "../../interfaces";
-import { CreateComment, CreateVideo, Subscribe } from "../../interfaces/dto";
+import { CreateVideo, Subscribe } from "../../interfaces/dto";
 import { convertToFormData } from "../../utils/convert";
-
 const initialState: UserData = {} as UserData;
 
 interface dataGetUser {
   token: string;
   userID: string;
 }
-
-const DOMAIN_BD = import.meta.env.VITE_DOMAIN_BD;
 
 export const getUserAuth0 = createAsyncThunk(
   "user/getUser",
@@ -60,24 +57,6 @@ export const uploadVideo = createAsyncThunk(
         "content-type": "multipart/form-data",
       },
       data: convertToFormData(data),
-    });
-
-    return response.data;
-  }
-);
-
-export const comment = createAsyncThunk(
-  "user/comment",
-  async (newData: CreateComment) => {
-    const { content, token, videoID } = newData;
-    const response = await axios.request({
-      url: `${DOMAIN_BD}/comment/${videoID}`,
-      method: "POST",
-      headers: {
-        authorization: `Bearer ${token}`,
-        "content-type": "application/json",
-      },
-      data: { content },
     });
 
     return response.data;

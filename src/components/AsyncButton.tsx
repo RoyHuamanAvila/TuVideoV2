@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import axios from 'axios';
 import { useState } from 'react'
 import { toast } from 'react-toastify';
 import { AsyncButtonInterface } from '../interfaces';
