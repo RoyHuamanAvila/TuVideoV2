@@ -8,18 +8,25 @@ import { AppDispatch } from "./app/store"
 import { getUserAuth0 } from "./features/user/userSlice"
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify"
+import { UserData } from "./interfaces"
+import { getChannel } from "./features/channel/channelSlice"
 
 function App() {
   const { getAccessTokenSilently } = useAuth0();
   const dispatch = useDispatch<AppDispatch>();
   const { user } = useAuth0();
 
+
   const getUserToken = async () => {
     try {
       const token = await getAccessTokenSilently();
       localStorage.setItem('token', token);
       if (token && user?.sub) {
-        dispatch(getUserAuth0({ token, userID: user?.sub }));
+        dispatch(getUserAuth0({ token, userID: user?.sub })).then((value) => {
+          const userData: UserData = value.payload;
+          const channelID: string = userData.user_metadata?.channel;
+          if (channelID) dispatch(getChannel(channelID));
+        });
       }
     } catch (e) {
       console.error(e);

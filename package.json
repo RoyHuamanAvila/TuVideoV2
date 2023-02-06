@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "tsc && vite build && firebase deploy"
   },
   "dependencies": {
     "@auth0/auth0-react": "^1.12.0",
