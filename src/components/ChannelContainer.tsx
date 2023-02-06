@@ -153,7 +153,7 @@ const ChannelContainer = () => {
                                         )
                                     }
                                     <p className="text-light">{`@${channel?.name}`}</p>
-                                    <p className="text-light">120M subscribers</p>
+                                    <p className="text-light">{`${channel?.subscribers?.length || 0} subscribers`}</p>
                                 </div>
                             </div>
                             <div className="align-self-end">
@@ -169,7 +169,7 @@ const ChannelContainer = () => {
                                             <button onClick={toggleEditMode} className="btn btn-secondary text-white rounded-0">Edit Channel</button>
                                         )
                                     ) : (
-                                        <ButtonSubscribe />
+                                        <ButtonSubscribe id={channel._id} name={channel.name} />
                                     )
                                 }
                             </div>

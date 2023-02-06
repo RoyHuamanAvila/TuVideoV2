@@ -22,6 +22,8 @@ export interface Channel {
   banner: string | File;
   owner: string;
   videos: Video[];
+  subscribers: string[];
+  subscribes: Channel[];
 }
 
 export interface UserData {

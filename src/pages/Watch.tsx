@@ -3,7 +3,7 @@ import ButtonSubscribe from "../components/ButtonSubscribe"
 import Comments from "../components/Comments"
 import VideoItem from "../components/VideoItem"
 import { Video } from "../interfaces"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import axios from "axios"
 
 const Watch = () => {
@@ -49,17 +49,17 @@ const Watch = () => {
                                 <p className="text-light">4,004,025 views</p>
                             </div>
                             <div className="d-flex pt-3 gap-3 border-bottom">
-                                <div className="channel-logo--m overflow-hidden">
+                                <Link to={`/channel/${video.owner._id}`} className="channel-logo--m overflow-hidden">
                                     <img className="channel-logo-img" src={video.owner?.logo as string} alt="" />
-                                </div>
+                                </Link>
                                 <div className="w-100">
                                     <div className="d-flex gap-3 justify-content-between">
                                         <div>
-                                            <p className="channel-name">{video.owner?.name}</p>
+                                            <Link to={`/channel/${video.owner._id}`} className="channel-name">{video.owner?.name}</Link>
                                             <p className="channel-subscriberscount--m">500,000 subscribers</p>
                                         </div>
                                         <div>
-                                            <ButtonSubscribe />
+                                            <ButtonSubscribe id={video?.owner?._id} name={video?.owner?.name} />
                                         </div>
                                     </div>
                                     <p className="video-description pt-3">
