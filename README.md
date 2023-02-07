@@ -1,5 +1,5 @@
 # TuVideoV2
-Version actualizada de TuVideo (Clon de Youtube) hecho con Bootstrap 5, Nestjs, React TS.
+Version actualizada de TuVideo (Clon de Youtube) hecho con Bootstrap 5, Nestjs, React TS con un sistema de autenticacion manejado por Auth0.
 
 ![image](https://user-images.githubusercontent.com/64821788/217391075-3f5870ee-68cd-4610-b67f-75029d063b8c.png)
 ![image](https://user-images.githubusercontent.com/64821788/217391677-52f48730-1c8f-4327-96c7-4fecd3f5c7ee.png)
