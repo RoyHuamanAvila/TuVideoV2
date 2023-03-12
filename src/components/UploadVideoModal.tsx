@@ -1,11 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { AsyncButtonInterface, CreateVideo } from '../interfaces';
 import { useVideoThumbnails } from '../hooks/useVideoThumbnails';
-import axios from 'axios';
-import { toast } from 'react-toastify';
 import AsyncButton from './AsyncButton';
-import { convertToFormData } from '../utils/convert';
-import { uploadVideo } from '../features/user/userSlice';
+import { uploadVideo } from "../features/user/userSlice";
 
 const UploadVideoModal = () => {
     const initialState: CreateVideo = {
@@ -14,6 +11,7 @@ const UploadVideoModal = () => {
         video: '',
         thumbnail: ''
     }
+
     const [video, setVideo] = useState<CreateVideo>(initialState);
     const convertVideoPath = (url: string | File): string => {
         if (url instanceof File) {
@@ -99,7 +97,18 @@ const UploadVideoModal = () => {
                     </div>
                     <div className="modal-body">
                         <div className="row">
-                            <div className="col-7 overflow-hidden">
+                            <div className="col-12 col-xl-7">
+                                {
+                                    video.video ? (
+                                        memoVideoPreview
+                                    ) : (
+                                        <div className="col-12 bg-light d-flex align-items-center" style={{ height: '200px' }}>
+                                            <i className="bi bi-play-circle-fill fs-1 text-center w-100 text-white"></i>
+                                        </div>
+                                    )
+                                }
+                            </div>
+                            <div className="col-12 col-xl-5 mt-3 overflow-hidden">
                                 <div className="d-flex align-items-center ms-2 mb-3">
                                     <button className='btn btn-secondary text-white position-relative'>
                                         <i className="bi bi-file-earmark-play"></i> Add Video
@@ -129,11 +138,11 @@ const UploadVideoModal = () => {
                                                         video.thumbnail ? (
                                                             <img src={convertVideoPath(video.thumbnail)} alt="Thumbnail selected" className='img-fluid' />
                                                         ) : (
-                                                            <>
+                                                            <div className='d-flex align-items-center flex-column px-5'>
                                                                 <i className="bi bi-card-image fs-3"></i>
-                                                                <p>Add Thumbnail</p>
+                                                                <p className='text-center'>Add Thumbnail</p>
                                                                 <input type="file" className='change-image' accept='image/*' onChange={addThumbnail} />
-                                                            </>
+                                                            </div>
                                                         )
                                                     }
                                                 </div>
@@ -146,17 +155,6 @@ const UploadVideoModal = () => {
                                         </div>
                                     </fieldset>
                                 </form>
-                            </div>
-                            <div className="col-5">
-                                {
-                                    video.video ? (
-                                        memoVideoPreview
-                                    ) : (
-                                        <div className="col-12 bg-light d-flex align-items-center" style={{ height: '250px' }}>
-                                            <i className="bi bi-play-circle-fill fs-1 text-center w-100 text-white"></i>
-                                        </div>
-                                    )
-                                }
                             </div>
                         </div>
                     </div>
