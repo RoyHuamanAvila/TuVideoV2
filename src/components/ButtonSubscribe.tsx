@@ -1,3 +1,4 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch, useSelector } from "react-redux"
 import { AppDispatch, RootState } from "../app/store";
 import { subscribe, unSubscribe } from "../features/channel/channelSlice";
@@ -8,6 +9,7 @@ const ButtonSubscribe: FC<{ id: string, name: string }> = ({ id, name }) => {
     const channel = useSelector((state: RootState) => state.yourChannel);
     const dispatch = useDispatch<AppDispatch>();
     const token = localStorage.getItem('token');
+    const { loginWithRedirect } = useAuth0();
 
     const handleSubscribe = async () => {
         if (token) {
@@ -18,6 +20,8 @@ const ButtonSubscribe: FC<{ id: string, name: string }> = ({ id, name }) => {
                 setLoading(false)
                 console.log(error);
             });
+        } else {
+            loginWithRedirect();
         }
     }
 

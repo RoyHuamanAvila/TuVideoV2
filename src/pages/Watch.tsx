@@ -56,7 +56,7 @@ const Watch = () => {
                                     <div className="d-flex gap-3 justify-content-between">
                                         <div>
                                             <Link to={`/channel/${video.owner._id}`} className="channel-name">{video.owner?.name}</Link>
-                                            <p className="channel-subscriberscount--m">500,000 subscribers</p>
+                                            <p className="channel-subscriberscount--m">{video.owner.subscribers.length} subscribers</p>
                                         </div>
                                         <div>
                                             <ButtonSubscribe id={video?.owner?._id} name={video?.owner?.name} />
