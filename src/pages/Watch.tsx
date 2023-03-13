@@ -47,7 +47,7 @@ const Watch = () => {
                             </div>
                             <p className="pt-2 fs-5 fw-semibold">{video.title}</p>
                             <div className="d-flex flex-wrap flex-sm-nowrap gap-3">
-                                <div className="d-flex gap-3 justify-content-between w-100">
+                                <div className="d-flex gap-3 justify-content-between">
                                     <div className="d-flex gap-3">
                                         <Link to={`/channel/${video.owner._id}`} className="channel-logo--m overflow-hidden">
                                             <img className="channel-logo-img" src={video.owner?.logo as string} alt="" />
