@@ -40,26 +40,28 @@ const Watch = () => {
         <>
             {
                 video ? (
-                    <div className="watch ps-3 pt-4 mx-lg-5 mx-xxl-auto">
+                    <div className="watch px-3 pt-4 mx-lg-5 mx-xxl-auto">
                         <div className="col-12 col-lg-8">
                             <div className="bg-black">
                                 <video className="w-100 h-auto" src={video.url} controls></video>
                             </div>
                             <p className="pt-2 fs-5 fw-semibold">{video.title}</p>
-                            <div className="d-flex gap-3">
-                                <Link to={`/channel/${video.owner._id}`} className="channel-logo--m overflow-hidden">
-                                    <img className="channel-logo-img" src={video.owner?.logo as string} alt="" />
-                                </Link>
-                                <div className="d-flex gap-3 justify-content-between">
-                                    <div>
-                                        <Link to={`/channel/${video.owner._id}`} className="channel-name">{video.owner?.name}</Link>
-                                        <p className="channel-subscriberscount--m">{video.owner.subscribers.length} subscribers</p>
+                            <div className="d-flex flex-wrap flex-sm-nowrap gap-3">
+                                <div className="d-flex gap-3 justify-content-between w-100">
+                                    <div className="d-flex gap-3">
+                                        <Link to={`/channel/${video.owner._id}`} className="channel-logo--m overflow-hidden">
+                                            <img className="channel-logo-img" src={video.owner?.logo as string} alt="" />
+                                        </Link>
+                                        <div>
+                                            <Link to={`/channel/${video.owner._id}`} className="channel-name">{video.owner?.name}</Link>
+                                            <p className="channel-subscriberscount--m">{video.owner.subscribers.length} subscribers</p>
+                                        </div>
                                     </div>
                                     <div className="ps-3">
                                         <ButtonSubscribe id={video?.owner?._id} name={video?.owner?.name} />
                                     </div>
                                 </div>
-                                <div className="ps-3">
+                                <div className="">
                                     <LikeButton countlike={video.likeCount} />
                                 </div>
                             </div>
