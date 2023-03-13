@@ -12,7 +12,7 @@ const VideoItem: FC<{ orientation: 'vertical' | 'horizontal', data?: Video }> = 
                         <div className="col">
                             <div className={`videoitem--${orientation}`}>
                                 <div className={`img-container img-container--${orientation}`}>
-                                    <img src={data?.thumbnail} alt="" loading="lazy" />
+                                    <img src={data?.thumbnail} alt="" loading="lazy" className="rounded" />
                                 </div>
                                 <div className="d-flex videoitem-data">
                                     {

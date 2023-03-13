@@ -1,0 +1,41 @@
+.button-like-container {
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  overflow: hidden;
+
+  button {
+    border: 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 0px 20px;
+  }
+
+  button:hover {
+    background-color: #c5c5c5;
+  }
+}
+
+.like {
+  width: 60%;
+  position: relative;
+}
+
+.like::after {
+  content: '';
+  width: 1px;
+  height: 80%;
+  background-color: #c5c5c5;
+  position: absolute;
+  right: 0;
+}
+
+.dislike {
+  width: 40%;
+}
+
+.button-like-containerSvg {
+  height: 24px;
+  width: 24px;
+}

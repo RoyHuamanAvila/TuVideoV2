@@ -86,7 +86,7 @@ const ChannelContainer = () => {
         }
 
         return (
-            <button onClick={handleSaveChanges} className="btn btn-confirm rounded-0 text-white">
+            <button onClick={handleSaveChanges} className="btn btn-confirm rounded-pill text-white">
                 {
                     isLoading ? (
                         <div className="spinner-border" role="status">
@@ -161,12 +161,12 @@ const ChannelContainer = () => {
                                     verifyOwner() ? (
                                         editMode ? (
                                             <div className="d-flex flex-column gap-2">
-                                                <button data-bs-toggle="modal" data-bs-target="#addComponentModal" className="btn btn-add rounded-0 text-white">Add Component</button>
+                                                <button data-bs-toggle="modal" data-bs-target="#addComponentModal" className="btn btn-add rounded-pill text-white">Add Component</button>
                                                 <ButtonSaveChanges />
-                                                <button onClick={handleCancelChanges} className="btn btn-cancel text-white rounded-0">Cancel Changes</button>
+                                                <button onClick={handleCancelChanges} className="btn btn-cancel text-white rounded-pill">Cancel Changes</button>
                                             </div>
                                         ) : (
-                                            <button onClick={toggleEditMode} className="btn btn-secondary text-white rounded-0">Edit Channel</button>
+                                            <button onClick={toggleEditMode} className="btn btn-secondary text-white rounded-pill">Edit Channel</button>
                                         )
                                     ) : (
                                         <ButtonSubscribe id={channel._id} name={channel.name} />

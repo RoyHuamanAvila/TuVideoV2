@@ -5,6 +5,7 @@ import VideoItem from "../components/VideoItem"
 import { Video } from "../interfaces"
 import { Link, useParams } from "react-router-dom"
 import axios from "axios"
+import { LikeButton } from "../components/LikeButton"
 
 const Watch = () => {
     const [video, setVideo] = useState<Video>()
@@ -45,27 +46,28 @@ const Watch = () => {
                                 <video className="w-100 h-auto" src={video.url} controls></video>
                             </div>
                             <p className="pt-2 fs-5 fw-semibold">{video.title}</p>
-                            <div className="d-flex border-bottom">
-                                <p className="text-light">4,004,025 views</p>
-                            </div>
-                            <div className="d-flex pt-3 gap-3 border-bottom">
+                            <div className="d-flex gap-3">
                                 <Link to={`/channel/${video.owner._id}`} className="channel-logo--m overflow-hidden">
                                     <img className="channel-logo-img" src={video.owner?.logo as string} alt="" />
                                 </Link>
-                                <div className="w-100">
-                                    <div className="d-flex gap-3 justify-content-between">
-                                        <div>
-                                            <Link to={`/channel/${video.owner._id}`} className="channel-name">{video.owner?.name}</Link>
-                                            <p className="channel-subscriberscount--m">{video.owner.subscribers.length} subscribers</p>
-                                        </div>
-                                        <div>
-                                            <ButtonSubscribe id={video?.owner?._id} name={video?.owner?.name} />
-                                        </div>
+                                <div className="d-flex gap-3 justify-content-between">
+                                    <div>
+                                        <Link to={`/channel/${video.owner._id}`} className="channel-name">{video.owner?.name}</Link>
+                                        <p className="channel-subscriberscount--m">{video.owner.subscribers.length} subscribers</p>
                                     </div>
-                                    <p className="video-description pt-3">
-                                        {video.description}
-                                    </p>
+                                    <div className="ps-3">
+                                        <ButtonSubscribe id={video?.owner?._id} name={video?.owner?.name} />
+                                    </div>
                                 </div>
+                                <div className="ps-3">
+                                    <LikeButton countlike={video.likeCount} />
+                                </div>
+                            </div>
+                            <div className="mt-3 w-100 bg-light bg-opacity-25 rounded px-3 py-2">
+                                <p className="fw-semibold">28 K vistas hace 2 días</p>
+                                <p className="video-description">
+                                    {video.description}
+                                </p>
                             </div>
                             <Comments videoID={video._id} />
                         </div>
