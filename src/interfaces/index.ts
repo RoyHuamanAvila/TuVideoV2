@@ -66,6 +66,8 @@ export interface Video {
   url: string;
   thumbnail: string;
   owner: Channel;
+  likeCount: number;
+  dislikeCount: number;
 }
 
 export interface AsyncButtonInterface {

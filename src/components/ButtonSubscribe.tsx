@@ -45,14 +45,14 @@ const ButtonSubscribe: FC<{ id: string, name: string }> = ({ id, name }) => {
                 channel ? (
                     channel.subscribes?.find(channel => channel._id === id) ? (
                         <button
-                            className="btn btn-white rounded-0 border-light"
+                            className="btn btn-white rounded-pill border-light"
                             onClick={handleUnSuscribe}
                         >
-                            SUBSCRIBED
+                            Subscribed
                         </button>
                     ) : (
                         <button
-                            className="btn btn-primary rounded-0"
+                            className="btn btn-primary rounded-pill"
                             onClick={handleSubscribe}
                             disabled={loading}
                         >
@@ -62,7 +62,7 @@ const ButtonSubscribe: FC<{ id: string, name: string }> = ({ id, name }) => {
                                         <span className="visually-hidden">Loading...</span>
                                     </div>
                                 ) : (
-                                    <>SUBSCRIBE</>
+                                    <>Subscribe</>
                                 )
                             }
                         </button>
