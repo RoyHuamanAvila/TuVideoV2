@@ -13,6 +13,8 @@ const Home = () => {
         owner: {} as Channel,
         thumbnail: '',
         url: '',
+        dislikeCount: 0,
+        likeCount: 0
     }
 
     const getVideos = async () => {
