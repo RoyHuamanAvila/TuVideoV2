@@ -1,49 +1,32 @@
 import { useEffect, useState } from "react"
-import VideoItem from "../components/VideoItem"
+import { VideoCard, VideoCardPlaceholder } from "../components"
 import axios from "axios";
-import { Channel, Video } from "../interfaces";
+import { Video } from "../interfaces";
 
 const Home = () => {
     const [videos, setVideos] = useState<Video[]>();
 
-    const emptyData: Video = {
-        _id: '',
-        title: '',
-        description: '',
-        owner: {} as Channel,
-        thumbnail: '',
-        url: '',
-        dislikeCount: 0,
-        likeCount: 0
-    }
-
     const getVideos = async () => {
+        console.log(import.meta.env.VITE_DOMAIN_BD)
         const response = await axios.get(`${import.meta.env.VITE_DOMAIN_BD}/video`);
-
         setVideos(response.data);
     }
 
-    const videosPlaceholder = () => {
-        const placeHolders: Video[] = [];
-        for (let i = 0; i < 8; i++) {
-            placeHolders[i] = emptyData;
-        }
-
-        return placeHolders.map((video, index) => <VideoItem key={index} orientation="vertical" />);
-    }
+    const getPlaceholders = () => {
+        const arrayPlaceholder = Array.from({ length: 8 }, (_, index) => (
+            <VideoCardPlaceholder key={index} />
+        ));
+        return arrayPlaceholder;
+    };
 
     useEffect(() => {
         getVideos();
     }, [])
 
     return (
-        <div className="row justify-content-start px-5 px-sm-3 row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5">
+        <div className="row justify-content-start pt-3 px-5 px-sm-3 row-cols-1 row-cols-sm-2 row-cols-lg-2 row-cols-xl-3 row-cols-xxl-4">
             {
-                videos ? (
-                    videos.map((video, index) => <VideoItem key={index} orientation="vertical" data={video} />)
-                ) : (
-                    videosPlaceholder()
-                )
+                videos ? videos.map(video => <VideoCard data={video} key={video._id} />) : getPlaceholders()
             }
         </div>
     )

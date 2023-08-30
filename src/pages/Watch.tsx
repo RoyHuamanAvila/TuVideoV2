@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import ButtonSubscribe from "../components/ButtonSubscribe"
 import Comments from "../components/Comments"
-import VideoItem from "../components/VideoItem"
+import VideoCard from "../components/VideoCard/VideoCard"
 import { Video } from "../interfaces"
 import { Link, useParams } from "react-router-dom"
 import axios from "axios"
@@ -75,7 +75,7 @@ const Watch = () => {
                         </div>
                         <div className="col-12 col-lg-4 d-flex flex-column gap-3 ps-lg-3 ps-xxl-5">
                             {
-                                listVideo?.map((video, index) => <VideoItem key={index} data={video} orientation="horizontal" />)
+                                listVideo?.map((video, index) => <VideoCard key={index} data={video} orientation="horizontal" />)
                             }
                         </div>
                     </div>
