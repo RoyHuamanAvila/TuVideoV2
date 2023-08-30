@@ -1,0 +1,17 @@
+@use 'src/scss/colors';
+
+.video-card__thumbnail {
+  aspect-ratio: 16/9;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  background-color: colors.$light;
+}
+
+.channel-logo {
+  aspect-ratio: 1/1;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: colors.$light;
+}
