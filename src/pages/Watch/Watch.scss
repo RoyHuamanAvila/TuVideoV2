@@ -1,0 +1,31 @@
+.Watch {
+  width: 100%;
+}
+
+.Watch__video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+
+.Watch__logo-channel {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+}
+
+.Watch__comment {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  flex: 1 0 0;
+  margin-bottom: 0;
+
+  overflow: hidden;
+  color: #000;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

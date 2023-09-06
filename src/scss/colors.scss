@@ -1,15 +1,17 @@
-$primary: #390857;
-$add: #9f03ff;
-$secondary: #EF620B;
-$light: #e5e5e5;
-$confirm: #74f180;
-$cancel: #e40122;
+$primary: #F77309;
+$background: #FFFFFF;
+$secondary: #7B4397;
+$grey-900: #202020;
+$grey-800: #343434;
+$grey-600: #7C7C7C;
+$grey-50: #F1F1F1;
 
 $theme-colors: (
     "primary": $primary,
+    "background": $background,
     "secondary": $secondary,
-    "light": $light,
-    "confirm": $confirm,
-    "cancel": $cancel,
-    "add": $add,
+    "grey-900": $grey-900,
+    "grey-800": $grey-800,
+    "grey-600": $grey-600,
+    "grey-50": $grey-50,
 );
