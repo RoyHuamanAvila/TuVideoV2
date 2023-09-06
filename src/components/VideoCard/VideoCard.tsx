@@ -13,9 +13,9 @@ const VideoCard: FC<VideoCard> = ({ data }) => {
     return (
         <div className='video-card'>
             <Link to={`watch/${_id}`}>
-                <img className='video-card__thumbnail mb-3' src={thumbnail} alt="Thumbnail video" />
+                <img className='video-card__thumbnail mb-2' src={thumbnail} alt="Thumbnail video" />
             </Link>
-            <div className='d-flex align-items-start gap-3'>
+            <div className='d-flex align-items-start gap-3 px-2'>
                 <Link to={`channel/${owner._id}`}>
                     <img className='channel-logo' src={owner.logo as string} alt="Logo channel" />
                 </Link>
