@@ -5,7 +5,7 @@ export { default as BoxAddComment } from './Comment/BoxAddComment';
 export { default as BoxComment } from './Comment/BoxComment';
 export { default as Comments } from './Comments';
 export { default as GenerateVideoThumbnails } from './GenerateVideoThumbnails';
-export { default as Header } from './Header';
+export * from './Header';
 export * from './Icons';
 export * from './LikeButton';
 export * from './Placeholders/VideoCardPlaceholder';

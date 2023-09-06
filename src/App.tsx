@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom"
-import Header from "./components/Header"
+import { Header } from "./components"
 import Sidebar from "./components/Sidebar"
 import { useEffect } from "react"
 import { useAuth0 } from '@auth0/auth0-react'
