@@ -6,6 +6,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+#root::-webkit-scrollbar {
+    display: none;
+}
+
 $theme-colors: colors.$theme-colors;
 
 /* .header {
@@ -82,12 +86,17 @@ input[type="text"]:focus {
     left: 0;
     right: 0;
     bottom: 0;
-    //overflow: scroll;
+    overflow: scroll;
     //margin-right: 5px;
 }
 
 ::-webkit-scrollbar {
     -webkit-appearance: none;
+    display: none;
+
+    @media (min-width: 576px) {
+        display: block;
+    }
 }
 
 ::-webkit-scrollbar:vertical {

@@ -3,7 +3,7 @@ import './Header.scss';
 
 const HeaderView = () => {
   return (
-    <header className='px-3 d-flex align-items-center justify-content-between'>
+    <header className='px-3 d-flex align-items-center justify-content-between bg-background'>
       <Link to='/'>
         <img src="/icons/TuVideoIcon.svg" alt="Logo TuVideo" />
       </Link>
