@@ -58,7 +58,7 @@
 }
 
 .tab-channel {
-    color: colors.$light;
+    color: colors.$grey-50;
     position: relative;
     padding: 0px 30px;
     padding-bottom: 10px;
@@ -72,7 +72,7 @@
 .tab-channel.active::before {
     content: "";
     height: 2px;
-    background-color: colors.$light;
+    background-color: colors.$grey-50;
     position: absolute;
     bottom: 0;
     right: 0;

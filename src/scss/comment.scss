@@ -9,12 +9,12 @@
 .comment-input[type=text] {
     border: 0;
     position: relative;
-    border-bottom: 1px solid colors.$light;
+    border-bottom: 1px solid colors.$grey-50;
     width: 100%;
 }
 
 .comment-input[type=text]:focus {
-    border-bottom: 1px solid colors.$light;
+    border-bottom: 1px solid colors.$grey-50;
 }
 
 .comment-input-control:has(>.comment-input[type=text])::after {

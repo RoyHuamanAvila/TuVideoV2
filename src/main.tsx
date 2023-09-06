@@ -7,7 +7,7 @@ import Home from './pages/Home'
 import Subscribes from './pages/Subscribes'
 import ChannelContainer from './components/ChannelContainer'
 import ChannelHome from './pages/ChannelHome'
-import Watch from './pages/Watch'
+import { Watch } from './pages';
 import { Auth0Provider } from '@auth0/auth0-react'
 import { Provider } from 'react-redux'
 import { store } from './app/store'
