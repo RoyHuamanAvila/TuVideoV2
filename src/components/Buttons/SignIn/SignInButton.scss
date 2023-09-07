@@ -1,0 +1,27 @@
+@use 'src/scss/colors';
+
+.sign-in-button {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: colors.$secondary;
+  text-decoration: none;
+  gap: 0.5rem;
+
+  &:hover {
+    color: colors.$secondary;
+  }
+
+  @media (min-width: 768px) {
+    padding: 0.25rem 1rem;
+    font-size: 1.5rem;
+    border-radius: 50rem;
+    border: 1px colors.$secondary solid;
+
+    &:hover {
+      color: colors.$background;
+      background: colors.$secondary;
+    }
+  }
+
+}
