@@ -11,8 +11,8 @@ export * from './LikeButton';
 export * from './Placeholders/VideoCardPlaceholder';
 export * from './Placeholders';
 export { default as Sidebar } from './Sidebar';
-export { default as SignInButton } from './SignInButton';
 export { default as SuscribeItem } from './SuscribeItem';
 export { default as UploadVideoModal } from './UploadVideoModal';
 export * from './VideoCard';
 export * from './Navbar'
+export * from './Buttons'

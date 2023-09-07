@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Header.scss';
+import { SigInButton } from '../Buttons';
 
 const HeaderView = () => {
   return (
@@ -10,7 +11,7 @@ const HeaderView = () => {
           <img className='px-md-3' src="/icons/TuVideoIcon.svg" alt="Logo TuVideo" />
         </Link>
       </div>
-      <img src="/icons/icon-profile-circled.svg" alt="Icon Profile" />
+      <SigInButton />
     </header>
   )
 }
