@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
-import { VideoCard, VideoCardPlaceholder } from "../components"
+import { VideoCard, VideoCardPlaceholder } from "../../components"
 import axios from "axios";
-import { Video } from "../interfaces";
+import './Home.scss'
+import { Video } from "../../interfaces";
 
 const Home = () => {
     const [videos, setVideos] = useState<Video[]>();
@@ -24,7 +25,7 @@ const Home = () => {
     }, [])
 
     return (
-        <div className="">
+        <div className="Home">
             {
                 videos ? videos.map(video => <VideoCard data={video} key={video._id} />) : getPlaceholders()
             }
