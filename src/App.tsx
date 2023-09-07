@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom"
-import { Header } from "./components"
+import { Header, Navbar } from "./components"
 import Sidebar from "./components/Sidebar"
 import { useEffect } from "react"
 import { useAuth0 } from '@auth0/auth0-react'
@@ -40,7 +40,8 @@ function App() {
   return (
     <div className="content-scroll">
       <Header />
-      <Sidebar />
+      <Navbar />
+      {/* <Sidebar /> */}
       <div className={`page-container`} >
         <NavLink to='/watch' className='inWatch' />
         <Outlet />
