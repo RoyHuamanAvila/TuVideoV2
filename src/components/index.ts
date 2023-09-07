@@ -15,3 +15,4 @@ export { default as SignInButton } from './SignInButton';
 export { default as SuscribeItem } from './SuscribeItem';
 export { default as UploadVideoModal } from './UploadVideoModal';
 export * from './VideoCard';
+export * from './Navbar'
