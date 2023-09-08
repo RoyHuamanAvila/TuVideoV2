@@ -4,7 +4,7 @@ import App from './App'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './scss/custom.scss'
 import Home from './pages/Home/Home'
-import Subscribes from './pages/Subscribes'
+import Subscribes from './pages/Subscribes/Subscribes'
 import ChannelContainer from './components/ChannelContainer'
 import ChannelHome from './pages/ChannelHome'
 import { Watch } from './pages';

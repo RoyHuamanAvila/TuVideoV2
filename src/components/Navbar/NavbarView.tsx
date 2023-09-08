@@ -6,11 +6,11 @@ const NavbarView = () => {
   return (
     <nav id='navbar'>
       <NavItem label='Principal' to='/'>
-        <img src="/icons/icon-home.svg" alt="Home Icon" />
+        <i className="bi bi-house"></i>
       </NavItem>
       <img className='d-md-none' src="/icons/icon-add-circled-outline.svg" alt="Add icon" />
-      <NavItem label='Suscripciones' to='/subs'>
-        <img src="/icons/SubsOutline.svg" alt="Subs icon" />
+      <NavItem label='Suscripciones' to='/subscribes'>
+        <i className="bi bi-collection-play"></i>
       </NavItem>
     </nav>
   )
@@ -23,7 +23,7 @@ interface NavItemProps {
 }
 const NavItem: FC<NavItemProps> = ({ children, to, label }) => {
   return (
-    <NavLink to={to} className='nav-item'>
+    <NavLink to={to} className='nav-item fs-5'>
       {children}
       <p>{label}</p>
     </NavLink>

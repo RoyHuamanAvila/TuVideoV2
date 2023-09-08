@@ -21,7 +21,7 @@ const VideoCard: FC<VideoCard> = ({ data }) => {
                 </Link>
                 <div>
                     <p className='fw-semibold m-0'>{title}</p>
-                    <p>{owner.name}</p>
+                    <p className='text-grey-600'>{owner.name}</p>
                 </div>
             </div>
         </div>
