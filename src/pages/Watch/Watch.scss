@@ -1,5 +1,18 @@
+@use 'src/scss/colors';
+
 .Watch {
   width: 100%;
+
+  small {
+    color: colors.$grey-600;
+  }
+}
+
+.Watch__title {
+  margin: 0;
+  font-size: 1.5rem;
+  max-height: 28px;
+  line-height: normal;
 }
 
 .Watch__video {
@@ -12,6 +25,7 @@
   height: 24px;
   width: 24px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .Watch__comment {
