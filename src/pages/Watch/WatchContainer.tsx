@@ -33,7 +33,7 @@ const WatchContainer = () => {
     getListVideos();
   }, [id])
 
-  return video && <WatchView video={video} />
+  return video ? <WatchView video={video} /> : <div>Loading...</div>
 }
 
 export default WatchContainer
