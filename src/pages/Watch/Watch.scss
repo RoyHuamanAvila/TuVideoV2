@@ -1,5 +1,41 @@
+@use 'src/scss/colors';
+
 .Watch {
   width: 100%;
+  display: flex;
+  justify-content: center;
+
+  small {
+    color: colors.$grey-600;
+  }
+
+  @media screen and (min-width: 768px) {
+    .Watch__Container {
+      width: 100%;
+      max-width: 1340px;
+
+      &:first-child {
+        width: 50%;
+      }
+    }
+
+    .btn-subscribe {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.Watch__title {
+  margin: 0;
+  font-size: 1.5rem;
+  max-height: 28px;
+  line-height: normal;
+}
+
+.Watch__subs-stats {
+  color: colors.$grey-600;
+  font-size: 0.875rem;
+  margin: 0;
 }
 
 .Watch__video {
@@ -12,6 +48,22 @@
   height: 24px;
   width: 24px;
   border-radius: 50%;
+  object-fit: cover;
+
+  @media screen and (min-width: 768px) {
+    height: 32px;
+    width: 32px;
+  }
+}
+
+.Watch__view-stats {
+  color: colors.$grey-600;
+  font-size: 0.75rem;
+  margin: 0;
+
+  @media screen and (min-width: 768px) {
+    font-size: 0.875rem;
+  }
 }
 
 .Watch__comment {
@@ -22,10 +74,13 @@
   margin-bottom: 0;
 
   overflow: hidden;
-  color: #000;
   text-overflow: ellipsis;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+
+  @media screen and (min-width: 768px) {
+    font-size: 0.875rem;
+  }
 }
