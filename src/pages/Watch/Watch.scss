@@ -13,10 +13,8 @@
     .Watch__Container {
       width: 100%;
       max-width: 1340px;
-
-      &:first-child {
-        width: 50%;
-      }
+      display: flex;
+      gap: 1rem;
     }
 
     .btn-subscribe {

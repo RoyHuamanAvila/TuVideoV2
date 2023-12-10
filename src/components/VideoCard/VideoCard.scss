@@ -1,5 +1,43 @@
 @use 'src/scss/colors';
 
+.video-card {
+  display: flex;
+  flex-direction: column;
+
+  &.video-card--horizontal {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.5rem;
+    max-width: 428px;
+    min-width: 300px;
+    height: 94px;
+
+    .video-card__thumbnail {
+      width: 151px;
+      aspect-ratio: 16/9;
+    }
+
+    .channel-logo {
+      display: none;
+    }
+
+    .video-card__details {
+      display: flex;
+      align-items: start;
+    }
+  }
+
+  &.video-card--vertical {
+    gap: 0.5rem;
+
+    .video-card__details {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+}
+
 .video-card__thumbnail {
   aspect-ratio: 16/9;
   width: 100%;

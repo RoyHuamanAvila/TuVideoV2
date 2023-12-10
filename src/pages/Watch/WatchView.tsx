@@ -2,17 +2,19 @@ import { FC } from "react"
 import { Video } from "../../interfaces"
 import './Watch.scss'
 import { Subscribe } from "../../components/Buttons"
+import { VideoCard } from "../../components"
 
 interface WatchViewProps {
-  video: Video
+  video: Video,
+  moreVideos?: Video[]
 }
 
-const WatchView: FC<WatchViewProps> = ({ video }) => {
+const WatchView: FC<WatchViewProps> = ({ video, moreVideos }) => {
   const { url, title, owner } = video;
   return (
     <div className="Watch">
       <div className="Watch__Container">
-        <section className="d-flex flex-column gap-2">
+        <section className="d-flex flex-column gap-2 flex-grow-1 ps-md-4 ps-xxl-0">
           <video className="Watch__video" src={url}></video>
           <div className="px-3 d-flex flex-column gap-2">
             <p className="Watch__title fw-semibold">{title}</p>
@@ -45,8 +47,15 @@ const WatchView: FC<WatchViewProps> = ({ video }) => {
             </div>
           </div>
         </section>
-        <section>
-
+        <section className="px-3">
+          <p className="fw-bold mt-2">VIDEOS RECOMENDADOS</p>
+          <div className="d-flex flex-column gap-2 pe-md-5">
+            {
+              moreVideos?.map((video, index) => (
+                <VideoCard key={index} data={video} orientation="horizontal" />
+              ))
+            }
+          </div>
         </section>
       </div>
     </div>
