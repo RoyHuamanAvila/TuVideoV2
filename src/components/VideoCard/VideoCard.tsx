@@ -13,11 +13,11 @@ const VideoCard: FC<VideoCard> = ({ data, orientation = 'vertical' }) => {
 
     return (
         <div className={`video-card video-card--${orientation}`} >
-            <Link to={`watch/${_id}`}>
+            <Link to={`/watch/${_id}`}>
                 <img className='video-card__thumbnail' src={thumbnail} alt="Thumbnail video" />
             </Link>
             <div className='video-card__details'>
-                <Link to={`channel/${owner._id}`}>
+                <Link to={`/channel/${owner._id}`}>
                     <img className='channel-logo' src={owner.logo as string} alt="Logo channel" />
                 </Link>
                 <div>

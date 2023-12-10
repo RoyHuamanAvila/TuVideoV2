@@ -15,7 +15,7 @@ const WatchView: FC<WatchViewProps> = ({ video, moreVideos }) => {
     <div className="Watch">
       <div className="Watch__Container">
         <section className="d-flex flex-column gap-2 flex-grow-1 ps-md-4 ps-xxl-0">
-          <video className="Watch__video" src={url}></video>
+          <video className="Watch__video" src={url} controls></video>
           <div className="px-3 d-flex flex-column gap-2">
             <p className="Watch__title fw-semibold">{title}</p>
             <p className="Watch__view-stats">1.9 M vistas hace 2 meses</p>
