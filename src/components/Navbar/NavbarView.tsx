@@ -2,9 +2,13 @@ import { FC, ReactNode } from 'react'
 import './Navbar.scss'
 import { NavLink } from 'react-router-dom';
 
-const NavbarView = () => {
+interface NavbarViewProps {
+  hide: boolean;
+}
+
+const NavbarView: FC<NavbarViewProps> = ({ hide }) => {
   return (
-    <nav id='navbar'>
+    <nav id='navbar' className={`${hide && 'hide'}`}>
       <NavItem label='Principal' to='/'>
         <i className="bi bi-house"></i>
       </NavItem>
