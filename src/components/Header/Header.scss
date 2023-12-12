@@ -6,3 +6,20 @@ header {
   left: 0;
   z-index: 10;
 }
+
+.Header__User-Picture-toggle {
+  height: 100%;
+  width: auto;
+  background: transparent;
+  border: 0;
+}
+
+.Header__User-Picture {
+  height: 100%;
+  width: auto;
+  border-radius: 50%;
+}
+
+.no-arrow.dropdown-toggle::after {
+  display: none;
+}
