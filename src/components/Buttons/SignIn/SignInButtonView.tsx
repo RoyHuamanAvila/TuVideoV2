@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import './SignInButton.scss'
 import { FC } from 'react';
 

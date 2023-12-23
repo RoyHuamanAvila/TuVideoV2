@@ -7,6 +7,8 @@
   color: colors.$secondary;
   text-decoration: none;
   gap: 0.5rem;
+  border: 0;
+  background: transparent;
 
   &:hover {
     color: colors.$secondary;
