@@ -1,15 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom"
 import { Header, Navbar } from "./components"
-import Sidebar from "./components/Sidebar"
-import { useEffect } from "react"
-import { useAuth0 } from '@auth0/auth0-react'
-import { useDispatch } from "react-redux"
-import { AppDispatch } from "./app/store"
-import { getUserAuth0 } from "./features/user/userSlice"
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify"
-import { UserData } from "./interfaces"
-import { getChannel } from "./features/channel/channelSlice"
 
 function App() {
   /*   const { getAccessTokenSilently } = useAuth0();
@@ -36,6 +28,19 @@ function App() {
     useEffect(() => {
       if (user) getUserToken()
     }, [user]) */
+
+  /*   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
+  
+    const getToken = async () => {
+      const token = await getAccessTokenSilently();
+      console.log(token);
+    }
+  
+    useEffect(() => {
+      if (isAuthenticated) {
+        getToken();
+      }
+    }, [isAuthenticated]) */
 
   return (
     <div className="content-scroll">
