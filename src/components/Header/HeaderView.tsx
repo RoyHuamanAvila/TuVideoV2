@@ -28,7 +28,15 @@ const HeaderView: FC<HeaderViewProps> = ({ isAuthenticated, user, logout, channe
       }
       <ul className="dropdown-menu">
         {
-          channelID ? <li><Link className="dropdown-item" to={`/channel/${channelID}`}>Mi Canal</Link></li> : <li><a className="dropdown-item">Create Channel</a></li>
+          channelID ?
+            <li>
+              <Link className="dropdown-item" to={`/channel/${channelID}`}>Mi Canal</Link>
+            </li> :
+            <li>
+              <button type="button" className="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Crear Canal
+              </button>
+            </li>
         }
         <li><a className="dropdown-item" onClick={logout}>Cerrar Sesión</a></li>
       </ul>

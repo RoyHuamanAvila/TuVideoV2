@@ -2,6 +2,7 @@ import { NavLink, Outlet } from "react-router-dom"
 import { Header, Navbar } from "./components"
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify"
+import { CreateChannel } from "./components/Modals";
 
 function App() {
   /*   const { getAccessTokenSilently } = useAuth0();
@@ -52,6 +53,7 @@ function App() {
         <Outlet />
       </div>
       <ToastContainer />
+      <CreateChannel />
     </div>
   )
 }
