@@ -16,3 +16,4 @@ export { default as UploadVideoModal } from './UploadVideoModal';
 export * from './VideoCard';
 export * from './Navbar'
 export * from './Buttons'
+export * from './ChannelHeader'

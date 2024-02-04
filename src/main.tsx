@@ -5,13 +5,13 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './scss/custom.scss'
 import Home from './pages/Home/Home'
 import Subscribes from './pages/Subscribes/Subscribes'
-import ChannelContainer from './components/ChannelContainer'
-import ChannelHome from './pages/ChannelHome'
+import { Channel } from './pages'
+//import ChannelHome from './pages/ChannelHome'
 import { Watch } from './pages';
 import { Auth0Provider } from '@auth0/auth0-react'
 import { Provider } from 'react-redux'
 import { store } from './app/store'
-import ChannelVideos from './pages/ChannelVideos'
+//import ChannelVideos from './pages/ChannelVideos'
 
 const router = createBrowserRouter([
   {
@@ -19,10 +19,7 @@ const router = createBrowserRouter([
       { path: '/', element: <Home /> },
       { path: '/subscribes', element: <Subscribes /> },
       {
-        element: <ChannelContainer />, children: [
-          { path: '/channel/:id', element: <ChannelHome /> },
-          { path: '/channel/:id/videos', element: <ChannelVideos /> }
-        ]
+        path: '/channel/:id', element: <Channel />
       },
       { path: '/watch/:id', element: <Watch /> }
     ]

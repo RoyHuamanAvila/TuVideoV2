@@ -1,0 +1,41 @@
+@use 'src/scss/colors';
+
+.channelHeader {
+  background: colors.$background;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .channel-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: colors.$grey-900;
+  }
+
+  .channel-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: colors.$grey-900;
+  }
+
+  .btn-edit-channel {
+    background-color: colors.$background;
+    color: colors.$secondary;
+    padding: 0.5rem 1rem;
+    border: 1px solid colors.$secondary;
+    border-radius: 1.5rem;
+    min-width: 120px;
+    margin-left: auto;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: colors.$secondary;
+      color: colors.$background;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
