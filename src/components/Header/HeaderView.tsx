@@ -7,10 +7,11 @@ import { User } from '@auth0/auth0-react';
 interface HeaderViewProps {
   isAuthenticated: boolean;
   user?: User;
+  channelID?: string;
   logout: () => void;
 }
 
-const HeaderView: FC<HeaderViewProps> = ({ isAuthenticated, user, logout }) => {
+const HeaderView: FC<HeaderViewProps> = ({ isAuthenticated, user, logout, channelID }) => {
   return (
     <header className='px-3 py-2 d-flex align-items-center justify-content-between bg-background'>
       <div className="d-flex align-items-center">
@@ -26,7 +27,17 @@ const HeaderView: FC<HeaderViewProps> = ({ isAuthenticated, user, logout }) => {
           </button> : <SigInButton />
       }
       <ul className="dropdown-menu">
-        <li><a className="dropdown-item">Mi Canal</a></li>
+        {
+          channelID ?
+            <li>
+              <Link className="dropdown-item" to={`/channel/${channelID}`}>Mi Canal</Link>
+            </li> :
+            <li>
+              <button type="button" className="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Crear Canal
+              </button>
+            </li>
+        }
         <li><a className="dropdown-item" onClick={logout}>Cerrar Sesión</a></li>
       </ul>
     </header>

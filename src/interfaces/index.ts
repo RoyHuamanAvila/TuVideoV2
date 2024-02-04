@@ -49,7 +49,7 @@ export interface Identity {
 }
 
 export interface UserMetadata {
-  channel: string;
+  channel?: string;
 }
 
 export interface CreateVideo {
