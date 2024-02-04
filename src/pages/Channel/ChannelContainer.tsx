@@ -23,8 +23,8 @@ const ChannelContainer = () => {
   return (
     <div className="channelContainer">
       {
-        channel && (
-          <ChannelHeader name={channel.name} logo={channel.logo as string} />
+        channel && id && (
+          <ChannelHeader name={channel.name} logo={channel.logo as string} id={id} />
         )
       }
     </div>

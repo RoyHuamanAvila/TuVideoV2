@@ -1,12 +1,13 @@
 import { FC } from 'react';
 import './ChannelHeader.scss';
 
-export type ChannelHeaderProps = {
+export type ChannelHeaderViewProps = {
 	name: string;
 	logo: string;
+	isMyChannel?: boolean;
 }
 
-const ChannelHeader: FC<ChannelHeaderProps> = ({ name, logo }) => {
+const ChannelHeaderView: FC<ChannelHeaderViewProps> = ({ name, logo, isMyChannel }) => {
 	return (
 		<div className='channelHeader px-4'>
 			<div className="d-flex align-items-center gap-4">
@@ -19,9 +20,12 @@ const ChannelHeader: FC<ChannelHeaderProps> = ({ name, logo }) => {
 					<p className='m-0'>0 suscriptores</p>
 				</div>
 			</div>
-			<button className='btn-edit-channel'>Editar Canal</button>
+			{
+				isMyChannel ? (
+					<button className='btn-edit-channel'>Editar Canal</button>) : <button>Suscribirse</button>
+			}
 		</div>
 	);
 };
 
-export default ChannelHeader;
+export default ChannelHeaderView;
