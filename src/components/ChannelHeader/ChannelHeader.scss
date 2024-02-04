@@ -45,4 +45,21 @@
       transition: all 0.3s ease-in-out;
     }
   }
+
+  .btn-suscribe {
+    background-color: colors.$primary;
+    color: colors.$grey-900;
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    border: 1px solid colors.$primary;
+    min-width: 120px;
+    margin-left: auto;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: lighten($color: colors.$primary, $amount: 10);
+      transition: all 0.3s ease-in-out;
+    }
+  }
 }

@@ -21,8 +21,9 @@ const ChannelHeaderView: FC<ChannelHeaderViewProps> = ({ name, logo, isMyChannel
 				</div>
 			</div>
 			{
-				isMyChannel ? (
-					<button className='btn-edit-channel'>Editar Canal</button>) : <button>Suscribirse</button>
+				isMyChannel ?
+					<button className='btn-edit-channel'>Editar Canal</button> :
+					<button className='btn-suscribe'>Suscribirse</button>
 			}
 		</div>
 	);
